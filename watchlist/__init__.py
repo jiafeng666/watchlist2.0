@@ -24,7 +24,7 @@ login_manager = LoginManager(app)
 @login_manager.user_loader
 def load_user(user_id):   # 创建用户加载回调函数，接收user_id作为参数
     from watchlist.models import User
-    user = User.query.get(user_id)   # 用id作为User模型的主键查询对应的用户
+    user = User.query.get(int(user_id))   # 用id作为User模型的主键查询对应的用户
     return user
 
 login_manager.login_view = 'login'
